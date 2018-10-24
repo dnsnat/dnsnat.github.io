@@ -1,0 +1,161 @@
+	/* Body Class This is demo purpose only */
+	
+	.demo {
+	    position: relative;
+	    color: #333;
+	    font-family: 'Open Sans', sans-serif;
+	    line-height: 25px;
+	    background: #f0f0f0;
+	}
+	/* Navigation Bar Section */
+	
+	.my-nav a {
+	    -webkit-transition: all .3s ease-in-out;
+	    -moz-transition: all .3s ease-in-out;
+	    transition: all .3s ease-in-out;
+	}
+	.my-nav a:hover,
+	.my-nav a:focus {
+	    text-decoration: none;
+	}
+	/* NavBar */
+	
+	.my-nav .navbar-custom.mnav {
+	    margin-bottom: 0;
+	    border-bottom: 1px solid #333;
+	    text-transform: uppercase;
+	    color: rgba(255, 255, 255, .8);
+	    background-color: #000;
+	}
+	/* Top Custom Navbar */
+	
+	.my-nav .navbar-custom.mnav .navbar-brand.mnav {
+	    font-size: 26px;
+	    letter-spacing: -1px;
+	    text-transform: none;
+	    font-family: 'Open Sans', sans-serif;
+	}
+	.my-nav .navbar-custom.top-nav-collapse.mnav .navbar-brand.mnav {
+	    font-size: 18px;
+	    font-family: 'Open Sans', sans-serif;
+	}
+	.my-nav .navbar-custom.mnav .navbar-brand.mnav:focus {
+	    outline: 0;
+	}
+	/* Humberger Menu */
+	
+	.my-nav .navbar-custom.mnav .navbar-brand.mnav .navbar-toggle {
+	    padding: 4px 6px;
+	    font-size: 16px;
+	    color: #fff;
+	    font-family: 'Open Sans', sans-serif;
+	}
+	.my-nav .navbar-custom.mnav .navbar-brand .navbar-toggle:focus,
+	.my-nav .navbar-custom.mnav .navbar-brand .navbar-toggle:active {
+	    outline: 0;
+	}
+	/* Navbar Hyperlink */
+	
+	.my-nav .navbar-custom.mnav a {
+	    color: #fff;
+	    font-size: 12px;
+	    font-family: 'Open Sans', sans-serif;
+	    font-weight: 700;
+	    letter-spacing: 0.15em;
+	    text-transform: uppercase;
+	}
+	/* Navbar Transition Animation */
+	
+	.my-nav .navbar-custom.mnav .nav li a {
+	    -webkit-transition: background .4s ease-in-out;
+	    -moz-transition: background .4s ease-in-out;
+	    transition: background .4s ease-in-out;
+	}
+	.my-nav .navbar-custom.mnav .nav.mnav li a:hover {
+	    outline: 0;
+	    color: rgba(255, 255, 255, .8);
+	    background-color: transparent;
+	}
+	.my-nav .navbar-custom.mnav .nav li a:focus,
+	.my-nav .navbar-custom.mnav .nav.mnav li a:active {
+	    outline: 0;
+	    background-color: transparent;
+	}
+	/* Hover Active */
+	
+	.my-nav .navbar-custom.mnav .nav.mnav li.active {
+	    outline: 0;
+	}
+	.my-nav .navbar-custom.mnav .nav.mnav li.active a {
+	    color: #FFFF00;
+	}
+	.my-nav .navbar-custom.mnav .nav.mnav li.active a:hover {
+	    color: #fff;
+	}
+	@media(min-width:768px) {
+	    /* Ipad Custom Navbar */
+	    
+	    .my-nav .navbar-custom.mnav {
+	        padding: 30px;
+	        border-bottom: 0;
+	        letter-spacing: 1px;
+	        background: 0 0;
+	        -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
+	        -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
+	        transition: background .5s ease-in-out, padding .5s ease-in-out;
+	    }
+	    /* Humberger Bar */
+	    
+	    .my-nav .navbar-custom.top-nav-collapse {
+	        padding: 0px 30px;
+	        background-color: rgba(0,0,0,.5);
+	    }
+	}
+	.my-nav .top-nav-collapse.mnav .container.mnav {
+	    width: auto;
+	}
+	.my-nav .navbar-toggle {
+	    padding: 3px 5px 0;
+	    margin-bottom: 0;
+	}
+	/* Content Section */
+	
+	#bsec #home,
+	#bsec #about,
+	#bsec #service,
+	#bsec #product,
+	#bsec #portfolio,
+	#bsec #contact {
+	    padding-top: 50px;
+	}
+	/* Horizantal link CSS */
+	
+	#bsec hr {
+	    margin-top: 10px !important;
+	    margin-bottom: 0px !important;
+	    border: 0;
+	    border-top: 2px solid #ccc;
+	}
+	/* Heading CSS */
+	
+	#bsec #home h4,
+	#bsec #about h4,
+	#bsec #service h4,
+	#bsec #product h4,
+	#bsec #portfolio h4,
+	#bsec #contact h4 {
+	    text-transform: capitalize;
+	    font-family: 'Open Sans', sans-serif;
+	    font-size: 15px;
+	    font-weight: bold;
+	    line-height: 25px;
+	    color: #696969;
+	}
+	/* Padding Top and Bottom */
+	
+	#bsec .pad-top {
+	    padding-top: 50px;
+	}
+	#bsec .pad-bot {
+	    padding-bottom: 50px;
+	}

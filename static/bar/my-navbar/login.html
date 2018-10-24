@@ -1,0 +1,99 @@
+<html lang="en"><head><script>
+</script>
+      <!-- Character set configuration -->
+      <meta charset="UTF-8">
+      <title>My Navbar - Top Fixed Responsive Bootstrap Navigation</title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- Viewport configuration, scaling options -->
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <!-- CSS Stylesheet -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/demo-3/top-navbar-3.css" rel="stylesheet">
+      <!-- Font Awesome icon -->
+      <link href="css/font-awesome.min.css" rel="stylesheet">
+      <!-- Google web font  -->
+   </head>
+   <body class="demo">
+      <!-- Navigation -->
+      <div class="my-nav">
+         <nav class="navbar navbar-custom navbar-fixed-top mnav" role="navigation">
+            <div class="container">
+               <div class="navbar-header mnav">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse"> <i class="fa fa-bars fa-2x"></i> </button>
+                  <a class="navbar-brand page-scroll mnav" href="##"><i class="fa"></i> WitKit <i class="fa"></i> </a> 
+               </div>
+               <!-- Collect the nav links, forms, and other content for toggling -->
+               <div class="collapse navbar-collapse navbar-left navbar-main-collapse mnav">
+                  <ul class="nav navbar-nav mnav">
+                     <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                     <li> <a href="#contact">Contact</a> </li>
+                     <li class="active"> <a href="#home">首页</a> </li>
+                     <li> <a href="#product">Product</a> </li>
+                     <li> <a href="#portfolio">Portfolio</a> </li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+      </div>
+      <!-- Intro Header -->
+      <iframe id="divContent" name="i" width="100%" frameborder="0" src="file:///home/demonelf/project/00.mywork/witcloud/www/views/static/login/login-concept/index.html" style="height: 1024px;"></iframe>
+
+         <div class="pad-top"></div>
+         <footer>
+            <div class="text-center">
+               <p class="label label-default"> Copyright © 2017 My Navbar. All Rights Reserved. </p>
+            </div>
+         </footer>
+         <div class="pad-bot"></div>
+      </div>
+      <!--  Latest jQuery Plugins -->
+      <script src="js/jquery-1.12.4.min.js"></script> <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="js/bootstrap.min.js"></script> 
+      <!-- Mynav Bar Script -->
+      <script src="js/nav-js-2/mynavbar.js"></script> 
+      <script src="js/smooth-scroll.js"></script> 
+   
+
+<script>
+</script><script type="text/javascript"> 
+<!-- 
+//Disable right click script 
+var message="Sorry, right-click has been disabled"; 
+/////////////////////////////////// 
+function clickIE() {if (document.all) {(message);return false;}} 
+function clickNS(e) {if 
+(document.layers||(document.getElementById&&!document.all)) { 
+if (e.which==2||e.which==3) {(message);return false;}}} 
+if (document.layers) 
+{document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;} 
+else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;} 
+document.oncontextmenu=new Function("return false") 
+// --> 
+</script> 
+<script language="JavaScript">
+
+//////////F12 disable code////////////////////////
+    document.onkeypress = function (event) {
+        event = (event || window.event);
+        if (event.keyCode == 123) {
+           //alert('No F-12');
+            return false;
+        }
+    }
+    document.onmousedown = function (event) {
+        event = (event || window.event);
+        if (event.keyCode == 123) {
+            //alert('No F-keys');
+            return false;
+        }
+    }
+document.onkeydown = function (event) {
+        event = (event || window.event);
+        if (event.keyCode == 123) {
+            //alert('No F-keys');
+            return false;
+        }
+    }
+/////////////////////end///////////////////////
+</script>
+</body></html>
