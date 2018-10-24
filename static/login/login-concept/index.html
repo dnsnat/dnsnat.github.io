@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+    <head>
+        <meta charset="UTF-8">
+        <title>智强通达科技- SSLINK.COM.CN</title>
+
+
+
+        <link rel="stylesheet" href="/views/static/login/login-concept/css/style.css">
+        <script src='/views/static/js/jquery-2.1.1.min.js'></script>
+        <script src="/views/static/login/login-concept/js/index.js"></script>
+
+        <style>
+/*
+body{  
+    background:url(http://www.pptbz.com/pptpic/UploadFiles_6909/201105/2011051823374471.jpg);  
+    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";  
+    -moz-background-size:100% 100%;  
+    background-size:100% 100%;  
+    background-attachment: fixed;
+} 
+*/
+        </style>
+
+
+    </head>
+
+    <body class="demo">
+
+        <div nowrap style="position: absolute; top: 32px; left: 80px; ">
+            <a style="top: 16px;font-weight:bold; font-family:verdana,arial,sans-serif; font-size:32px;color:#49A3FF;">
+                SSLINK 
+            </a>
+        </div>
+        <div nowrap style="position: absolute; top: 38px; left: 190px; ">
+            <a style="top: 16px; letter-spacing:6px; font-size:22px; ;color:#fffffff2; font-family:Microsoft YaHei,微软雅黑,Tahoma,Verdana;">
+                &nbsp;&nbsp;&nbsp;工业现场总线采集器
+            </a>
+        </div>
+
+
+        <div class="wrapper center">
+            <h1 style="font-size:32px; color:#fffffff2;font-family:youyuan;">后台管理</h1>
+            <div class="anim-input ripple" data-ripple-color="#383838">
+                <div class="label">请输入用户名</div>
+                <input type="text" id="input_user">
+            </div>
+            <div class="anim-input ripple" data-ripple-color="#383838">
+                <div class="label">请输入密码</div>
+                <input type="password" id="input_pass">
+            </div>
+
+            <button onclick="window.location.href='javascript:doPost()'" class="ripple" data-ripple-color="#000">登录</button>
+        </div>
+
+        <footer style="font-size:20px"> © WWW.SSLINK.COM.CN 版权所有</footer> 
+    </body>
+    <script type="text/javascript"> 
+function doPost() { // to:提交动作（action）,p:参数 
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/login.cgi", true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.setRequestHeader("kbn-version", "5.3.0");
+
+    xhr.send(JSON.stringify({
+    "username" :  document.getElementById("input_user").value,
+        "password" :  document.getElementById("input_pass").value
+}));
+    window.location.href='/login.cgi';
+} 
+    </script> 
+
+</html>
