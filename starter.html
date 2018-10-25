@@ -367,6 +367,10 @@ desired effect
         if(cval!=null) 
             document.cookie= name + "="+cval+";expires="+exp.toGMTString(); 
     } 
+    if(username=getCookie('sessionid') == "")
+    {
+        window.location.href= "login.html";
+    }
     username=getCookie('username');
     //document.getElementById("supterId").href = 'http://' + username + '.witkit.cn:8080/ssh/term/'; 
     document.getElementById("userId").innerHTML = username; 
