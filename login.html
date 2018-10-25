@@ -40,7 +40,7 @@ body{
 
 
 
-        <div class="wrapper center">
+        <div class="wrapper center" style="height:35px">
             <h1 style="font-size:32px; color:#fffffff2;font-family:youyuan;">登录云端</h1>
             <div class="anim-input ripple" data-ripple-color="#383838">
                 <div class="label">请输入用户名</div>
@@ -52,15 +52,17 @@ body{
             </div>
 
             <button id="but1" onclick="window.location.href='javascript:doPost()'" class="ripple" data-ripple-color="#000">登录</button>
+            
+            <script  src="static/pure-css3-colorful-loading/js/index.js"></script>
             <link rel="stylesheet" href="static/pure-css3-colorful-loading/css/style.css">
-            <div id="ajaxloader2" style="display:none;">
+            <div id="ajaxloader3" style="visibility:hidden;Margin:16px 0px -16px 0px;">
                 <div class="outer"></div>
                 <div class="inner"></div>
             </div>
+
+        <footer style="font-size:20px"> © WWW.WITKIT.CN 版权所有</footer> 
         </div>
 
-        <script  src="static/pure-css3-colorful-loading/js/index.js"></script>
-        <footer style="font-size:20px"> © WWW.WITKIT.CN 版权所有</footer> 
     </body>
     <script type="text/javascript"> 
 
@@ -92,8 +94,9 @@ function createXHR() {
     host2=document.domain; 
     //alert("http://"+ document.getElementById("input_user").value + "." +host+ "/login.cgi") 
 
-    var obj = document.getElementById("ajaxloader2");
-    obj.style.display= "block";
+    var obj = document.getElementById("ajaxloader3");
+    //obj.style.display= "block";
+    obj.style.visibility= "visible";
 
     //window.location.href="static/svg-spiral-loading/index.html";
     var xhr = createXHR();
