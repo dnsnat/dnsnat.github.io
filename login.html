@@ -4,8 +4,10 @@
     <head>
         <meta charset="UTF-8">
         <title>机智科技- WITKIT.CN</title>
-
         <link rel="stylesheet" href="static/login/login-concept/css/style.css">
+
+        <script type="text/javascript"> witkit_server ='http://127.0.0.1'; </script>
+        <script src='static/js/jquery-2.1.1.min.js'></script>
         <script src='static/js/jquery-2.1.1.min.js'></script>
         <script src="static/login/login-concept/js/index.js"></script>
         <link href="static/bar/my-navbar/css/demo-3/hover-min.css" rel="stylesheet" media="all">
@@ -20,12 +22,9 @@ body{
 } 
 */
         </style>
-
-
     </head>
 
     <body class="demo">
-
         <div  onclick="window.open('/','_self','')" nowrap style="position: absolute; top: 32px; left: 80px; ">
             <a   class="hvr-buzz"  onselectstart="return false;" style="cursor: pointer;  top: 16px;font-weight:bold; font-family:verdana,arial,sans-serif; font-size:32px;color:#49A3FF;">
                 WITKIT 
@@ -36,9 +35,6 @@ body{
                 &nbsp;&nbsp;&nbsp;机智云
             </a>
         </div>
-
-
-
 
         <div class="wrapper center" style="height:35px">
             <h1 style="font-size:32px; color:#fffffff2;font-family:youyuan;">登录云端</h1>
@@ -55,6 +51,9 @@ body{
             
             <script  src="static/pure-css3-colorful-loading/js/index.js"></script>
             <link rel="stylesheet" href="static/pure-css3-colorful-loading/css/style.css">
+            <div id="error_log" style="visibility:hidden;Margin:12px 0px 0px 0px;color:#FF6A6A;">
+                <a>帐号或密码错误!</a>
+            </div>
             <div id="ajaxloader3" style="visibility:hidden;Margin:16px 0px -16px 0px;">
                 <div class="outer"></div>
                 <div class="inner"></div>
@@ -89,38 +88,61 @@ function createXHR() {
 }
 }
 
+    function show_error()
+    {
+        var obj = document.getElementById("ajaxloader3");
+        var error_log = document.getElementById("error_log");
+        obj.style.visibility= "hidden";
+        error_log.style.visibility= "visible";
+    }
+
     function doPost() { // to:提交动作（action）,p:参数 
-    host = window.location.host;
-    host2=document.domain; 
+
+
+    if(document.getElementById("input_user").value == ""|| 
+        document.getElementById("input_pass").value == "")
+        {
+            var error_log = document.getElementById("error_log");
+            error_log.style.visibility= "visible";
+            return;
+        }
+
     //alert("http://"+ document.getElementById("input_user").value + "." +host+ "/login.cgi") 
-
     var obj = document.getElementById("ajaxloader3");
-    //obj.style.display= "block";
+    var error_log = document.getElementById("error_log");
     obj.style.visibility= "visible";
+    error_log.style.visibility= "hidden";
 
-    //window.location.href="static/svg-spiral-loading/index.html";
+
     var xhr = createXHR();
-    //var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://"+ document.getElementById("input_user").value + "." +host+ "/login.cgi", true);
-    //xhr.open("POST", "/login.cgi", true);
+    xhr.open("POST", witkit_server + ":8080/auth", true);
 
-    xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest"); //请求头部，需要服务端同时设置
-    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.withCredentials = true;
+    //xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest"); //请求头部，需要服务端同时设置
+    //xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.withCredentials = true; // 设置运行跨域操作  
+
     //注册相关事件回调处理函数
     xhr.onload = function(e) { 
-    if(this.status == 200||this.status == 304){
-    window.location.href="http://"+ document.getElementById("input_user").value + "." +host+ "/static/login/Login_v10/Login_v10/goto_starter.html";
-}
-};
-    //xhr.setRequestHeader("Content-type", "application/json");
-    //xhr.setRequestHeader("kbn-version", "5.3.0");
-    xhr.send(JSON.stringify({
-    "username" :  document.getElementById("input_user").value,
-        "password" :  document.getElementById("input_pass").value
-}));
+        if(this.status == 200||this.status == 304){
+            //window.location.href="http://"+ document.getElementById("input_user").value + "." +host+ "/static/login/Login_v10/Login_v10/goto_starter.html";
+            obj = JSON.parse(xhr.response);
+            if(obj.result && obj.error == null){
+                //document.cookie="sessionID="+obj.result;
+                document.cookie="sessionid" + obj.result + ";  path=/";
+                document.cookie="username=" + document.getElementById("input_user").value + ";  path=/";
+                window.location.href= "starter.html";
+            }
+            else{
+                show_error();
+            }
+        }
+    };
 
-    //window.location.href="http://"+ document.getElementById("input_user").value + "." +host+ "/static/login/Login_v10/Login_v10/goto_starter.html";
+    xhr.send(JSON.stringify({
+        "jsonrpc"  :  "2.0",
+        "method"   :  "auth",
+        "params" :  [document.getElementById("input_user").value, document.getElementById("input_pass").value]
+    }));
 } 
 
     document.onkeydown = function (e) {
