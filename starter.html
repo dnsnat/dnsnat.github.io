@@ -358,6 +358,15 @@ desired effect
         }
         return ""
     }
+    //删除cookies 
+    function delCookie(name) 
+    { 
+        var exp = new Date(); 
+        exp.setTime(exp.getTime() - 1); 
+        var cval=getCookie(name); 
+        if(cval!=null) 
+            document.cookie= name + "="+cval+";expires="+exp.toGMTString(); 
+    } 
     username=getCookie('username');
     //document.getElementById("supterId").href = 'http://' + username + '.witkit.cn:8080/ssh/term/'; 
     document.getElementById("userId").innerHTML = username; 
@@ -406,6 +415,10 @@ function js_logout()
     document.cookie="sessionid"+"=null; expire="+date.toGMTString()+"; path=/";
     document.cookie="username"+"=null; expire="+date.toGMTString()+"; path=/";
     document.cookie="serverdomain"+"=null; expire="+date.toGMTString()+"; path=/";
+
+    delCookie("sessionid");
+    delCookie("username");
+    delCookie("serverdomain");
     window.location.href= "login.html";
     //alert('已经退出!');
     //location.reload();
