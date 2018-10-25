@@ -404,6 +404,8 @@ function js_logout()
     date.setTime(date.getTime()-10000);
     //document.cookie="session"+"=null; expire="+date.toGMTString()+"; path=/";
     document.cookie="sessionid"+"=null; expire="+date.toGMTString()+"; path=/";
+    document.cookie="username"+"=null; expire="+date.toGMTString()+"; path=/";
+    document.cookie="serverdomain"+"=null; expire="+date.toGMTString()+"; path=/";
     window.location.href= "login.html";
     //alert('已经退出!');
     //location.reload();

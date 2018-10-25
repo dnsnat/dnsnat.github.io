@@ -1,26 +1,45 @@
+        function getCookie(c_name)
+        {
+            if (document.cookie.length>0)
+              {
+              c_start=document.cookie.indexOf(c_name + "=")
+              if (c_start!=-1)
+                {
+                c_start=c_start + c_name.length+1
+                c_end=document.cookie.indexOf(";",c_start)
+                if (c_end==-1) c_end=document.cookie.length
+                return unescape(document.cookie.substring(c_start,c_end))
+                }
+              }
+            return ""
+        }
+
+        username=getCookie('username');
+        domain=getCookie('serverdomain');
 (function(angular) {
     'use strict';
     angular.module('FileManagerApp').provider('fileManagerConfig', function() {
+
 
         var values = {
             appName: 'angular-filemanager v1.5',
             defaultLang: 'en',
             multiLang: true,
 
-            listUrl:             'http://192.168.3.1:20002/jsonrpc',
-            uploadUrl:           'http://192.168.3.1:20002/jsonrpc',
-            renameUrl:           'http://192.168.3.1:20002/jsonrpc',
-            copyUrl:             'http://192.168.3.1:20002/jsonrpc',
-            moveUrl:             'http://192.168.3.1:20002/jsonrpc',
-            removeUrl:           'http://192.168.3.1:20002/jsonrpc',
-            editUrl:             'http://192.168.3.1:20002/jsonrpc',
-            getContentUrl:       'http://192.168.3.1:20002/jsonrpc',
-            createFolderUrl:     'http://192.168.3.1:20002/jsonrpc',
-            downloadFileUrl:     'http://192.168.3.1:20002/jsonrpc',
-            downloadMultipleUrl: 'http://192.168.3.1:20002/jsonrpc',
-            compressUrl:         'http://192.168.3.1:20002/jsonrpc',
-            extractUrl:          'http://192.168.3.1:20002/jsonrpc',
-            permissionsUrl:      'http://192.168.3.1:20002/jsonrpc',
+            listUrl:             'http://'+username+'.' + domain + ':20002/20002/jsonrpc',
+            uploadUrl:           'http://'+username+'.' + domain + ':20002/20002/jsonrpc',
+            renameUrl:           'http://'+username+'.' + domain + ':20002/20002/jsonrpc',
+            copyUrl:             'http://'+username+'.' + domain + ':20002/20002/jsonrpc',
+            moveUrl:             'http://'+username+'.' + domain + ':20002/20002/jsonrpc',
+            removeUrl:           'http://'+username+'.' + domain + ':20002/20002/jsonrpc',
+            editUrl:             'http://'+username+'.' + domain + ':20002/20002/jsonrpc',
+            getContentUrl:       'http://'+username+'.' + domain + ':20002/20002/jsonrpc',
+            createFolderUrl:     'http://'+username+'.' + domain + ':20002/20002/jsonrpc',
+            downloadFileUrl:     'http://'+username+'.' + domain + ':20002/20002/jsonrpc',
+            downloadMultipleUrl: 'http://'+username+'.' + domain + ':20002/20002/jsonrpc',
+            compressUrl:         'http://'+username+'.' + domain + ':20002/20002/jsonrpc',
+            extractUrl:          'http://'+username+'.' + domain + ':20002/20002/jsonrpc',
+            permissionsUrl:      'http://'+username+'.' + domain + ':20002/20002/jsonrpc',
             basePath: '/',
 
             searchForm: true,
