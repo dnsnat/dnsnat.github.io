@@ -427,6 +427,15 @@ function js_logout()
     //alert('已经退出!');
     //location.reload();
 }
+
+    //获取时间
+    function cookie_time(){
+        if(username=getCookie('sessionid') == "")
+        {
+            window.location.href= "login.html";
+        }
+    }
+    setInterval(mytime, 60 * 10 + 3); 
     </script>
 
 </body>
