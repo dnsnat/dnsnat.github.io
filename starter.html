@@ -413,12 +413,12 @@ $('#Nav1 li').click(function (){
 
 function js_logout()
 {
-    var date=new Date();
-    date.setTime(date.getTime()-10000);
-    //document.cookie="session"+"=null; expire="+date.toGMTString()+"; path=/";
-    document.cookie="sessionid"+"=null; expire="+date.toGMTString()+"; path=/";
-    document.cookie="username"+"=null; expire="+date.toGMTString()+"; path=/";
-    document.cookie="serverdomain"+"=null; expire="+date.toGMTString()+"; path=/";
+    //var date=new Date();
+    //date.setTime(date.getTime()-10000); 
+    ////document.cookie="session"+"=null; expire="+date.toGMTString()+"; path=/";
+    //document.cookie="sessionid"+"=null; expire="+date.toGMTString()+"; path=/";
+    //document.cookie="username"+"=null; expire="+date.toGMTString()+"; path=/";
+    //document.cookie="serverdomain"+"=null; expire="+date.toGMTString()+"; path=/";
 
     delCookie("sessionid");
     delCookie("username");
@@ -435,7 +435,7 @@ function js_logout()
             window.location.href= "login.html";
         }
     }
-    setInterval(mytime, 60 * 10 + 3); 
+    setInterval(cookie_time, 10 * 60 + 3); 
     </script>
 
 </body>
