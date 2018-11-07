@@ -157,7 +157,7 @@ function createXHR() {
                 document.cookie="sessionid=" + obj.result + ";  path=/; expires=" + exp.toGMTString();
                 document.cookie="username=" + document.getElementById("input_user").value + ";  path=/; expires=" + exp.toGMTString();
                 document.cookie="serverdomain=" + witkit_server + ";  path=/; expires=" + exp.toGMTString();
-                document.cookie="sessionid=" + obj.result + ";  path=/; domain=" + document.getElementById("input_user").value + '.' + getCookie('serverdomain') + "; expires=" + exp.toGMTString();
+                document.cookie="sessionid=" + obj.result + ";  path=/; domain="  + getCookie('serverdomain') + "; expires=" + exp.toGMTString();
                 alert("sessionid=" + obj.result + ";  path=/; domain=" + document.getElementById("input_user").value + '.' + getCookie('serverdomain'));
                 window.location.href= "starter.html";
             }
