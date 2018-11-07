@@ -53,7 +53,6 @@ function getCookie(c_name)
 }
 username=getCookie('username');
 var status_rcp = 'http://' + username + '.' + getCookie('serverdomain') + ':20002/20002/status'; 
-document.cookie="sessionid=" + obj.result + ";  path=/;domain=" + username + '.' + getCookie('serverdomain') + "; expires=" + exp.toGMTString();
 
 $.getJSON(status_rcp, function (json) {
     changevar  = json
