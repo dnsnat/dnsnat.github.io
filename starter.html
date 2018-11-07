@@ -367,8 +367,10 @@ desired effect
         if(cval!=null) 
             document.cookie= name + "="+cval+";expires="+exp.toGMTString(); 
     } 
-    if(username=getCookie('sessionid') == "")
+    if(document.cookie.indexOf('username') == -1)
     {
+        //alert(window.location.host);
+        //alert(getCookie('sessionid'));
         window.location.href= "login.html";
     }
     username=getCookie('username');
@@ -411,6 +413,14 @@ $('#Nav1 li').click(function (){
     });
 });
 
+
+function clearAllCookie() {
+    var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+    if(keys) {
+    for(var i = keys.length; i--;)
+    document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+    }
+}
 function js_logout()
 {
     //var date=new Date();
@@ -419,10 +429,11 @@ function js_logout()
     //document.cookie="sessionid"+"=null; expire="+date.toGMTString()+"; path=/";
     //document.cookie="username"+"=null; expire="+date.toGMTString()+"; path=/";
     //document.cookie="serverdomain"+"=null; expire="+date.toGMTString()+"; path=/";
-
-    delCookie("sessionid");
-    delCookie("username");
-    delCookie("serverdomain");
+    
+    //delCookie("sessionid");
+    //delCookie("username");
+    //delCookie("serverdomain");
+    clearAllCookie();
     window.location.href= "login.html";
     //alert('已经退出!');
     //location.reload();
@@ -430,7 +441,7 @@ function js_logout()
 
 
 
-    var hiddenProperty = 'hidden' in document ? 'hidden' :    
+var hiddenProperty = 'hidden' in document ? 'hidden' :    
         'webkitHidden' in document ? 'webkitHidden' : 
         'mozHidden' in document ? 'mozHidden' : 
         null;

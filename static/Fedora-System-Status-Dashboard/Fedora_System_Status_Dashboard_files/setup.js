@@ -17,7 +17,7 @@ function getCookie(c_name)
     return ""
 }
 username=getCookie('username');
-var status_rcp = 'http://' + username + '.witkit.cn:20002/20002/status'; 
+var status_rcp = 'http://' + username + '.' + getCookie('serverdomain') + ':20002/20002/status'; 
 
 $.getJSON(status_rcp, function (json) {
     changevar  = json
