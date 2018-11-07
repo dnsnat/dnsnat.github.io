@@ -154,7 +154,7 @@ function createXHR() {
                 var exp = new Date();
                 exp.setTime(exp.getTime() + 24 * 60 * 60000);//过期时间 60分钟
 
-                document.cookie="sessionid=" + obj.result + ";  path=/;domain=" + username + '.' + getCookie('serverdomain') + "; expires=" + exp.toGMTString();
+                document.cookie="sessionid=" + obj.result + ";  path=/; domain=" + username + '.' + getCookie('serverdomain') + "; expires=" + exp.toGMTString();
                 document.cookie="sessionid=" + obj.result + ";  path=/; expires=" + exp.toGMTString();
                 document.cookie="username=" + document.getElementById("input_user").value + ";  path=/; expires=" + exp.toGMTString();
                 document.cookie="serverdomain=" + witkit_server + ";  path=/; expires=" + exp.toGMTString();
