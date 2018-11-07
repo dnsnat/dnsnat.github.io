@@ -1,5 +1,40 @@
 var debugvar
 var changevar
+/**
+   * 设置cookie方法
+   * @param   {string}  c_name  cookie键值
+   * @param   {string}  value  cookie值
+   * @param   {Boolean}  domain  判断是否需要跨域
+   * @return  {*}  返回cookie值
+   */
+function setCookie_log (c_name,value,domain){
+    var exdate = new Date(), expiredays = 365;
+    exdate.setDate(exdate.getDate() + expiredays);
+    //判断是否需要跨域存储
+    if (domain) {
+        document.cookie = c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString())+";path=/;domain=xueersi.com";
+    } else {
+        document.cookie = c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString())+";path=/";
+    }   
+  }
+  /**
+   * 获取cookie方法
+   * @param   {string}  name  cookie键值
+   * @return  {*}  返回cookie值
+   */
+  function getCookie_log(name){
+    if (document.cookie.length>0){
+      var start=document.cookie.indexOf(name + "=");
+      if(start != -1){
+        start = start + name.length + 1;
+        var end = document.cookie.indexOf(";",start);
+        if (end == -1){
+          end = document.cookie.length;
+        }
+        return unescape(document.cookie.substring(start,end));
+      }
+    }
+  }
 
 function getCookie(c_name)
 {
@@ -18,6 +53,7 @@ function getCookie(c_name)
 }
 username=getCookie('username');
 var status_rcp = 'http://' + username + '.' + getCookie('serverdomain') + ':20002/20002/status'; 
+document.cookie="sessionid=" + obj.result + ";  path=/;domain=" + username + '.' + getCookie('serverdomain') + "; expires=" + exp.toGMTString();
 
 $.getJSON(status_rcp, function (json) {
     changevar  = json
