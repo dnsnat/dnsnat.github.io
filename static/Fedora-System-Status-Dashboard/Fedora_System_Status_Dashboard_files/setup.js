@@ -19,11 +19,10 @@ function getCookie(c_name)
 username=getCookie('username');
 var status_rcp = 'http://' + username + '.' + getCookie('serverdomain') + ':20002/20002/status'; 
 
-$.ajax({
-    url: 'http://' + username + '.' + getCookie('serverdomain'),
-    xhrFields: {
+$(document).ajaxSend(function (event, xhr, settings) {
+    settings.xhrFields = {
         withCredentials: true
-    }
+    };
 });
 
 $.getJSON(status_rcp, function (json) {
