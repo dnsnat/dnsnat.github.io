@@ -19,6 +19,13 @@ function getCookie(c_name)
 username=getCookie('username');
 var status_rcp = 'http://' + username + '.' + getCookie('serverdomain') + ':20002/20002/status'; 
 
+$.ajax({
+    url: 'http://' + username + '.' + getCookie('serverdomain'),
+    xhrFields: {
+        withCredentials: true
+    }
+});
+
 $.getJSON(status_rcp, function (json) {
     changevar  = json
     var Time = json.Time
