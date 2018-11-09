@@ -4,7 +4,7 @@
         function ($http, $q, $window, $translate, $httpParamSerializer, Upload) {
 
         $http.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-
+        $httpProvider.defaults.headers.post = {'my-header':'value'};
         var ApiHandler = function() {
             this.inprocess = false;
             this.asyncSuccess = false;
