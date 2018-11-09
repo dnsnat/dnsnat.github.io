@@ -14,6 +14,12 @@ function getCookie(c_name)
     return ""
 }
 
+$(document).ajaxSend(function (event, xhr, settings) {
+    settings.xhrFields = {
+        withCredentials: true
+    };
+});
+
 (function(angular) {
     'use strict';
     angular.module('FileManagerApp').service('apiHandler', ['$http', '$q', '$window', '$translate', '$httpParamSerializer', 'Upload',
@@ -22,7 +28,6 @@ function getCookie(c_name)
         $http.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
         //$http.defaults.withCredentials = true;
         $http.defaults.withCredentials = true;
-        $http.defaults.headers.common['Authorization'] = "89757";
         //$http.defaults.headers.common['Cookie'] = 'sessionid=' + getCookie('sessionid');
         //$httpProvider.defaults.headers.common['Authorization'] = "89757";
         //$httpProvider.defaults.headers.post = {'my-header':'value'};
