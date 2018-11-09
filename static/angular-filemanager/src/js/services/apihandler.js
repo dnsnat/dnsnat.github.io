@@ -20,7 +20,7 @@ function getCookie(c_name)
         function ($http, $q, $window, $translate, $httpParamSerializer, Upload) {
 
         $http.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-        $http.defaults.withCredentials = true;
+        $httpProvider.defaults.withCredentials = true;
         //$httpProvider.defaults.withCredentials = true;
         //$http.defaults.headers.common['Cookie'] = 'sessionid=' + getCookie('sessionid');
         //$httpProvider.defaults.headers.common['Authorization'] = "89757";
