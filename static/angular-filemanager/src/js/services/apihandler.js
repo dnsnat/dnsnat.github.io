@@ -3,7 +3,9 @@
     angular.module('FileManagerApp').service('apiHandler', ['$http', '$q', '$window', '$translate', '$httpParamSerializer', 'Upload',
         function ($http, $q, $window, $translate, $httpParamSerializer, Upload) {
 
+        $httpProvider.defaults.withCredentials = true;
         $http.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+        $httpProvider.defaults.headers.common['Authorization'] = "89757";
         $httpProvider.defaults.headers.post = {'my-header':'value'};
         var ApiHandler = function() {
             this.inprocess = false;
