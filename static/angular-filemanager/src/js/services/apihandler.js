@@ -28,8 +28,8 @@ $(document).ajaxSend(function (event, xhr, settings) {
         $http.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
         //$http.defaults.withCredentials = true;
         $http.defaults.withCredentials = true;
+        $http.defaults.headers.common['Authorization'] = "89757";
         //$http.defaults.headers.common['Cookie'] = 'sessionid=' + getCookie('sessionid');
-        //$httpProvider.defaults.headers.common['Authorization'] = "89757";
         //$httpProvider.defaults.headers.post = {'my-header':'value'};
         var ApiHandler = function() {
             this.inprocess = false;
