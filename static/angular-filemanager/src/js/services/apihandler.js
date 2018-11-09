@@ -5,6 +5,7 @@
 
         $http.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
         $http.defaults.withCredentials = true;
+        $http.defaults.headers.common = { 'My-Header' : 'value' };
 
         var ApiHandler = function() {
             this.inprocess = false;
