@@ -20,11 +20,6 @@ $(document).ajaxSend(function (event, xhr, settings) {
     };
 });
 
-angular.module("app").config(function ($httpProvider) {
-    $httpProvider.defaults.withCredentials = true;
-    $httpProvider.defaults.headers.common['Authorization'] = "89757";
-})
-
 (function(angular) {
     'use strict';
     angular.module('FileManagerApp').service('apiHandler', ['$http', '$q', '$window', '$translate', '$httpParamSerializer', 'Upload',
