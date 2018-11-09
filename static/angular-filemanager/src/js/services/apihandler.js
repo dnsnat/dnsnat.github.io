@@ -65,6 +65,7 @@ $(document).ajaxSend(function (event, xhr, settings) {
             var dfHandler = customDeferredHandler || self.deferredHandler;
             var deferred = $q.defer();
             var data = {
+                withCredentials: true,
                 action: 'list',
                 path: path,
                 fileExtensions: exts && exts.length ? exts : undefined
@@ -73,7 +74,7 @@ $(document).ajaxSend(function (event, xhr, settings) {
             self.inprocess = true;
             self.error = '';
 
-            $http.post(apiUrl, data, {withCredentials: true}).then(function(response) {
+            $http.post(apiUrl, data).then(function(response) {
                 dfHandler(response.data, deferred, response.status);
             }, function(response) {
                 dfHandler(response.data, deferred, response.status, 'Unknown error listing, check the response');
