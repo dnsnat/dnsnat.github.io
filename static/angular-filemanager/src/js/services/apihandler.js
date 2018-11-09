@@ -73,7 +73,7 @@ $(document).ajaxSend(function (event, xhr, settings) {
             self.inprocess = true;
             self.error = '';
 
-            $http.post(apiUrl, data).then(function(response) {
+            $http.post(apiUrl, data, {withCredentials: true}).then(function(response) {
                 dfHandler(response.data, deferred, response.status);
             }, function(response) {
                 dfHandler(response.data, deferred, response.status, 'Unknown error listing, check the response');
