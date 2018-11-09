@@ -4,6 +4,7 @@
         function ($http, $q, $window, $translate, $httpParamSerializer, Upload) {
 
         $http.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+        $http.defaults.withCredentials = true;
 
         var ApiHandler = function() {
             this.inprocess = false;
