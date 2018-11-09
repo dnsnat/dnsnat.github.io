@@ -19,9 +19,10 @@ function getCookie(c_name)
     angular.module('FileManagerApp').service('apiHandler', ['$http', '$q', '$window', '$translate', '$httpParamSerializer', 'Upload',
         function ($http, $q, $window, $translate, $httpParamSerializer, Upload) {
 
-        //$httpProvider.defaults.withCredentials = true;
         $http.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-        $http.defaults.headers.common['Cookie'] = 'sessionid=' + getCookie('sessionid');
+        $http.defaults.withCredentials = true;
+        //$httpProvider.defaults.withCredentials = true;
+        //$http.defaults.headers.common['Cookie'] = 'sessionid=' + getCookie('sessionid');
         //$httpProvider.defaults.headers.common['Authorization'] = "89757";
         //$httpProvider.defaults.headers.post = {'my-header':'value'};
         var ApiHandler = function() {
