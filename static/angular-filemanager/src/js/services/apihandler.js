@@ -20,6 +20,11 @@ $(document).ajaxSend(function (event, xhr, settings) {
     };
 });
 
+angular.module("app").config(function ($httpProvider) {
+    $httpProvider.defaults.withCredentials = true;
+    $httpProvider.defaults.headers.common['Authorization'] = "89757";
+})
+
 (function(angular) {
     'use strict';
     angular.module('FileManagerApp').service('apiHandler', ['$http', '$q', '$window', '$translate', '$httpParamSerializer', 'Upload',
@@ -28,6 +33,7 @@ $(document).ajaxSend(function (event, xhr, settings) {
         $http.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
         //$http.defaults.withCredentials = true;
         $http.defaults.withCredentials = true;
+        $http.defaults.headers.common['Authorization'] = "89757";
         //$http.defaults.headers.common['Cookie'] = 'sessionid=' + getCookie('sessionid');
         //$httpProvider.defaults.headers.common['Authorization'] = "89757";
         //$httpProvider.defaults.headers.post = {'my-header':'value'};
@@ -72,9 +78,7 @@ $(document).ajaxSend(function (event, xhr, settings) {
             self.inprocess = true;
             self.error = '';
 
-            $http.post(apiUrl, data, {
-                withCredentials: true,
-            }).then(function(response) {
+            $http.post(apiUrl, data).then(function(response) {
                 dfHandler(response.data, deferred, response.status);
             }, function(response) {
                 dfHandler(response.data, deferred, response.status, 'Unknown error listing, check the response');
