@@ -5430,6 +5430,8 @@ jQuery.extend({
 			url: url,
 			data: data,
 			success: callback,
+            xhrFields: {withCredentials: true},
+            crossDomain: true,
 			dataType: type
 		});
 	},
@@ -5455,6 +5457,8 @@ jQuery.extend({
 			url: url,
 			data: data,
 			success: callback,
+            xhrFields: {withCredentials: true},
+            crossDomain: true,
 			dataType: type
 		});
 	},
