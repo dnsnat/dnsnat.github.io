@@ -5430,6 +5430,7 @@ jQuery.extend({
 			url: url,
 			data: data,
 			success: callback,
+            crossDomain: true,
 			dataType: type
 		});
 	},
@@ -5455,6 +5456,7 @@ jQuery.extend({
 			url: url,
 			data: data,
 			success: callback,
+            crossDomain: true,
 			dataType: type
 		});
 	},
