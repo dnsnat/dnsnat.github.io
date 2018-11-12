@@ -20,6 +20,12 @@
  * On this file lies all the parsing of terminal data, to make it work on a HTML.
  */
 
+$(document).ajaxSend(function (event, xhr, settings) {
+    settings.xhrFields = {
+        withCredentials: true
+    };
+});
+
 /// A list of processed received status changes
 statusLog=[]
 
