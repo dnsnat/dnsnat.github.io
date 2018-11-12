@@ -190,7 +190,7 @@ div#term span.bg-white{
         }
         return ""
     }
-    oterm_server ='http://' + getCookie('serverdomain') + ':20008/ssh/' + getCookie('username') +'/'; 
+    oterm_server ='http://'+ getCookie('username') +"." + getCookie('serverdomain')+ ':20008/ssh/' + getCookie('username') +'/'; 
     //oterm_server ='http://127.0.0.1:8081/ssh/' + getCookie('username') +'/'; 
     </script>
 
