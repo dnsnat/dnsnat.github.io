@@ -5786,6 +5786,7 @@ jQuery.extend({
 
 		// Send the data
 		try {
+            xhr.withCredentials = true; //支持跨域发送cookies
 			xhr.send( noContent || s.data == null ? null : s.data );
 
 		} catch( sendError ) {
