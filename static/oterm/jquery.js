@@ -5415,7 +5415,6 @@ jQuery.each( "ajaxStart ajaxStop ajaxComplete ajaxError ajaxSuccess ajaxSend".sp
 		return this.bind(o, f);
 	};
 });
-jQuery.support.cors = true;
 jQuery.extend({
 	get: function( url, data, callback, type ) {
 		// shift arguments if data argument was omited
@@ -5430,8 +5429,6 @@ jQuery.extend({
 			url: url,
 			data: data,
 			success: callback,
-            xhrFields: {withCredentials: true},
-            crossDomain: true,
 			dataType: type
 		});
 	},
@@ -5457,8 +5454,6 @@ jQuery.extend({
 			url: url,
 			data: data,
 			success: callback,
-            xhrFields: {withCredentials: true},
-            crossDomain: true,
 			dataType: type
 		});
 	},
