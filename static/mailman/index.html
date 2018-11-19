@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="assets/css/app.css">
     <title>Mailman</title>
 </head>
-<body>
+<body STYLE="background-color: #f6f6f6;">
 
 <br>
 <div class="container" id="index" v-cloak>
@@ -57,8 +57,8 @@
                     </div>
                     <div class="form-group">
                         <label for="textArea" class="col-lg-2 control-label">{{i18n.body}}</label>
-                        <div class="col-lg-10">
-                            <textarea class="form-control" rows="15" id="textArea" v-model="body"></textarea>
+                        <div class="col-lg-10" >
+                            <textarea STYLE="background-color: #ffffff;" class="form-control" rows="15" id="textArea" v-model="body"></textarea>
                             <span class="help-block">{{i18n.support_markdown_syntax}}</span>
                             <div class="checkbox">
                                 <label>
