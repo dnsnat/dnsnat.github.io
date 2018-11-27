@@ -8,7 +8,7 @@
     a.async = 1;
     a.src = g;
     m.parentNode.insertBefore(a, m)
-})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+})(window, document, 'script', 'Fedora_System_Status_Dashboard_files/analytics.min.js', 'ga');
 ga('create', 'UA-YourID-1', 'auto');
 ga('send', 'pageview');
 //Please rename this file to googlea.js

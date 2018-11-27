@@ -16,8 +16,7 @@ function getCookie(c_name)
     }
     return ""
 }
-username=getCookie('username');
-var status_rcp = 'http://' + username + '.' + getCookie('serverdomain') + ':20002/20002/status'; 
+var status_rpc = 'http://' + getCookie('username') + '.' + getCookie('serverdomain') + ':20002/20002/status'; 
 
 $(document).ajaxSend(function (event, xhr, settings) {
     settings.xhrFields = {
@@ -25,7 +24,7 @@ $(document).ajaxSend(function (event, xhr, settings) {
     };
 });
 
-$.getJSON(status_rcp, function (json) {
+$.getJSON(status_rpc, function (json) {
     changevar  = json
     var Time = json.Time
     var Uptime = json.Uptime[0]
@@ -131,7 +130,7 @@ $.getJSON(status_rcp, function (json) {
     $('#ov3per').html($('#ov3per').html().replace(/\n/g,'<br>'));
     $('#ov4per').text("Used: " + (Math.round((SwapUsed/SwapSize)*10000)/100) + "%" + "\n" + ((Math.round(SwapUsed/10)/100) + " GB") + "/" + ((Math.round(SwapSize/10)/100) + " GB") + "\n" + "(Free: " + ((Math.round(SwapFree/10)/100) + " GB") + " Avail: " + ((Math.round(SwapAvail/10)/100) + " GB") + ")")
     $('#ov4per').html($('#ov4per').html().replace(/\n/g,'<br>'));
-    $('#Time').text("当前时间: " + Time);
+    $('#Time').text("系统时间: " + Time);
     $('#Time2').text("当前时间: " + Time);
     $('#Uptime').text("系统已运行: " + Uptime)
     $('#OnlineUser').text("当前用户: " + Users)
