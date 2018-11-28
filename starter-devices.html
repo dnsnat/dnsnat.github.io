@@ -62,7 +62,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-aria-ng sidebar-mini" >
+<body class="hold-transition skin-aria-ng sidebar-mini  sidebar-collapse" >
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -188,9 +188,9 @@ desired effect
                 <li class="dropdown user user-menu">
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <!-- The user image in the navbar-->
-                        <span class="hidden-xs" id="userId">Admin</span>
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                        <span class="hidden-xs" id="userId">Admin</span>
+                        <!-- The user image in the navbar-->
                         <img src="static/AdminLTE/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
                     </a>
                     <ul class="dropdown-menu">
@@ -230,48 +230,7 @@ desired effect
                     </ul>
                 </li>
                 <!-- Control Sidebar Toggle Button -->
-                <li class="divider"></li>
-                <li><a href="starter_devices.html"><i class="fa fa-mail-reply"></i></a></li>
 
-                <!--
-                <li class="dropdown-toggle">
-                    <a class="toolbar dropdown-toggle" data-toggle="dropdown" role="button" title="Quick Setting" aria-expanded="true">
-                        <i class="fa fa-gears"></i> 
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-right rpcselect-dropdown" role="menu">
-                        <li ng-repeat="setting in rpcSettings" ng-class="{'active': setting.isDefault}" class="ng-scope active">
-                            <a class="pointer-cursor" ng-click="switchRpcSetting(setting)" role="button">
-                                <span ng-bind="(setting.rpcAlias ? setting.rpcAlias : setting.rpcHost + ':' + setting.rpcPort)" class="ng-binding">live.witkit.cn:6800</span> 
-                                <i class="fa fa-check" ng-class="{'fa-check': setting.isDefault}"></i>
-                            </a>
-                        </li>
-                        <li ng-repeat="setting in rpcSettings" ng-class="" class="ng-scope">
-                            <a class="pointer-cursor" ng-click="switchRpcSetting(setting)" role="button">
-                                <span ng-bind="(setting.rpcAlias ? setting.rpcAlias : setting.rpcHost + ':' + setting.rpcPort)" class="ng-binding">live.witkit.cn:6900</span> 
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                -->
-                <li class="divider"></li>
-                <li class="dropdown-toggle" style="display:none">
-                    <a class="toolbar dropdown-toggle" data-toggle="dropdown" role="button" title="Quick Setting" aria-expanded="true">
-                        <i class="fa fa-gears"></i> 
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-right rpcselect-dropdown" role="menu"><!-- ngRepeat: setting in rpcSettings -->
-                        <li ng-repeat="setting in rpcSettings" ng-class="{'active': setting.isDefault}" class="ng-scope active">
-                            <a class="pointer-cursor" ng-click="switchRpcSetting(setting)" role="button">
-                                <span ng-bind="(setting.rpcAlias ? setting.rpcAlias : setting.rpcHost + ':' + setting.rpcPort)" class="ng-binding">live.witkit.cn:6800</span> 
-                                <i class="fa fa-check" ng-class="{'fa-check': setting.isDefault}"></i>
-                            </a>
-                        </li>
-                        <li ng-repeat="setting in rpcSettings" ng-class="" class="ng-scope">
-                            <a class="pointer-cursor" ng-click="switchRpcSetting(setting)" role="button">
-                                <span ng-bind="(setting.rpcAlias ? setting.rpcAlias : setting.rpcHost + ':' + setting.rpcPort)" class="ng-binding">live.witkit.cn:6900</span> 
-                            </a>
-                        </li><!-- end ngRepeat: setting in rpcSettings -->
-                    </ul>
-                </li>
 
             </ul>
         </div
@@ -286,31 +245,9 @@ desired effect
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu" data-widget="tree" id="Nav1">
               <!-- Optionally, you can add icons to the links -->
-              <li class="header ng-scope" translate="">状态查看</li>
-              <li class="active"><a href="static/Fedora-System-Status-Dashboard/index.html" id="a1" name="readme.html" target="i"><i class="fa fa-gittip"></i> <span>&nbsp;系统状态</span></a></li>
-              <li class="treeview">
-                  <a href="#"><i class="fa fa-cogs"></i> <span>&nbsp;应用列表</span>
-                      <span class="pull-right-container">
-                          <i class="fa fa-angle-left pull-right"></i>
-                      </span>
-                  </a>
-                  <ul class="treeview-menu">
-                      <li><a href="static/angular-filemanager/manager.html" id="fileID" name="angular-filemanager-master" target="i">文件浏览-[内置]</a></li>
-                      <li><a href="static/oterm/oterm.html" id="supterId" name="ssh" target="i">超级终端-[SSH]</a></li>
-                      <li><a href="static/AriaNg/index_src.html#!/downloading" id="a1" name="downloading" target="i">离线下载</a></li>
-                  </ul>
-              </li>
-              <li><a href="projects.html" id="a1" name="/projects.html" target="i"><i class="fa fa-cog"></i> <span>&nbsp;系统配置</span>
-                      <span class="pull-right-container">
-                          <span class="label label-info left">3</span>
-                      </span>
-                  </a>
-              </li>
-              <li><a href="readme.html" id="a1" name="readme.html" target="i"><i class="fa fa-check-circle-o"></i> <span>&nbsp;机智简介</span></a></li>
-              <li class="header ng-scope" translate="">系统设置</li>
-              <li><a href="static/mailman/index.html" id="a1" name="downloading" target="i"><i class="fa fa-futbol-o"></i> <span>&nbsp;敬请期待</span></a></li>
-              <li style="position:absolute;bottom:10px;"><a target="_top" href="starter_devices.html" id="a1" name="downloading" target="i"><i class="fa fa-mail-reply"></i> <span>设备列表</span></a></li>
-          </ul>
+              <li class="header ng-scope" translate="">全局查看</li>
+              <li class="active"><a href="devices.html" id="a1" name="readme.html" target="i"><i class="fa fa-gittip"></i> <span>&nbsp;设备列表</span></a></li>
+         </ul>
           <!-- /.sidebar-menu -->
       </section>
       <!-- /.sidebar -->
@@ -332,7 +269,7 @@ desired effect
 
               </div>
               <div class="FGH">
-                  <iframe id="divContent" name="i" width="100%" frameborder="0" src="/static/Fedora-System-Status-Dashboard/index.html"></iframe>
+                  <iframe id="divContent" name="i" width="100%" frameborder="0" src="devices.html"></iframe>
               </div>
 
       </section>

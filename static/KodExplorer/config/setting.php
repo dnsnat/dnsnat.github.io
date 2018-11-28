@@ -48,12 +48,12 @@ $config['defaultPlugins'] = array(
 //初始化系统配置
 $config['settingSystemDefault'] = array(
 	'systemPassword'	=> rand_string(20),
-	'systemName'		=> "KodExplorer",
-	'systemDesc'		=> "——可道云.资源管理器",
+	'systemName'		=> "虚拟桌面",
+	'systemDesc'		=> "——芯机智",
 	'pathHidden'		=> "Thumb.db,.DS_Store,.gitignore,.git",//目录列表隐藏的项
 	'autoLogin'			=> "0",			// 是否自动登录；登录用户为guest
 	'needCheckCode'		=> "0",			// 登陆是否开启验证码；默认关闭
-	'firstIn'			=> "explorer",	// 登录后默认进入[explorer desktop,editor]
+	'firstIn'			=> "desktop",	// 登录后默认进入[explorer desktop,editor]
 
 	'newUserApp'		=> "trello,一起写office,微信,365日历,石墨文档,ProcessOn,计算器,icloud,OfficeConverter",
 	'newUserFolder'		=> "document,desktop,pictures,music",

@@ -64,8 +64,41 @@ body{
 
     </body>
     <script type="text/javascript"> 
-
-
+/**
+   * 设置cookie方法
+   * @param   {string}  c_name  cookie键值
+   * @param   {string}  value  cookie值
+   * @param   {Boolean}  domain  判断是否需要跨域
+   * @return  {*}  返回cookie值
+   */
+function setCookie_log (c_name,value,domain){
+    var exdate = new Date(), expiredays = 365;
+    exdate.setDate(exdate.getDate() + expiredays);
+    //判断是否需要跨域存储
+    if (domain) {
+        document.cookie = c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString())+";path=/;domain=" + domain;
+    } else {
+        document.cookie = c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString())+";path=/";
+    }   
+  }
+  /**
+   * 获取cookie方法
+   * @param   {string}  name  cookie键值
+   * @return  {*}  返回cookie值
+   */
+  function getCookie_log(name){
+    if (document.cookie.length>0){
+      var start=document.cookie.indexOf(name + "=");
+      if(start != -1){
+        start = start + name.length + 1;
+        var end = document.cookie.indexOf(";",start);
+        if (end == -1){
+          end = document.cookie.length;
+        }
+        return unescape(document.cookie.substring(start,end));
+      }
+    }
+  }
     function getCookie(c_name)
     {
         if (document.cookie.length>0)
@@ -84,7 +117,7 @@ body{
 
     if(username=getCookie('username') != "")
     {
-        window.location.href= "starter.html";
+        window.location.href= "starter-devices.html";
     }
 
 function createXHR() {
@@ -160,7 +193,9 @@ function createXHR() {
                 document.cookie="serverdomain=" + witkit_server + ";  path=/; expires=" + exp.toGMTString();
                 //document.cookie="sessionid=" + obj.result + ";  path=/; domain="  + getCookie('serverdomain') + "; expires=" + exp.toGMTString();
                 //alert("sessionid=" + obj.result + ";  path=/; domain=" + document.getElementById("input_user").value + '.' + getCookie('serverdomain'));
-                window.location.href= "starter.html";
+                //window.location.href= "starter.html";
+                setCookie_log("sessionid", obj.result, "http://" + witkit_server);
+                window.location.href= "starter-devices.html";
             }
             else{
                 show_error();
