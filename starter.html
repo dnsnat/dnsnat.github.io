@@ -473,22 +473,24 @@ var hiddenProperty = 'hidden' in document ? 'hidden' :
     var login_time = 0;
     function cookie_check(){
         //如果在线则更新cookie
-        if (!document[hiddenProperty]) {    
-            //document.title='被发现啦(*´∇｀*)';
-            login_time = 0;
-        }else{
-            //document.title='藏好啦(つд⊂)  ';
-            login_time++;
-        }
 
-        if(login_time > 60)
+        //if (!document[hiddenProperty]) {    
+        //    //document.title='被发现啦(*´∇｀*)';
+        //    login_time = 0;
+        //}else{
+        //    //document.title='藏好啦(つд⊂)  ';
+        //    login_time++;
+        //}
+
+        //if(login_time > 60)
+        //{
+        //    js_logout();
+        //}
+        //如果cookie超时则退出
+        if(getCookie('username') == "")
         {
             js_logout();
-        }
-        //如果cookie超时则退出
-        if(username=getCookie('sessionid') == "")
-        {
-            window.location.href= "login.html";
+            //window.location.href= "login.html";
         }
     }
     setInterval(cookie_check,  60 * 1000); 
