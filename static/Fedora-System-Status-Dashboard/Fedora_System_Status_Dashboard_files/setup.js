@@ -16,7 +16,7 @@ function getCookie(c_name)
     }
     return ""
 }
-var status_rpc = 'http://' + getCookie('username') + '.' + getCookie('serverdomain') + ':20002/20002/status'; 
+var status_rpc = 'http://' + getCookie('deviceid') + '.' + getCookie('serverdomain') + ':20002/20002/status'; 
 
 $(document).ajaxSend(function (event, xhr, settings) {
     settings.xhrFields = {

@@ -14,7 +14,7 @@ function getCookie(c_name)
     return ""
 }
 
-username=getCookie('username');
+username=getCookie('deviceid');
 domain=getCookie('serverdomain');
 
 (function(angular) {

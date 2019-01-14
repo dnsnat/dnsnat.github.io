@@ -190,7 +190,35 @@ div#term span.bg-white{
         }
         return ""
     }
-    oterm_server ='http://'+ getCookie('username') +"." + getCookie('serverdomain')+ ':20008/ssh/' + getCookie('username') +'/'; 
+
+    function setCookie_log (c_name,value,domain){
+        var exdate = new Date(), expiredays = 365;
+        exdate.setDate(exdate.getDate() + expiredays);
+        //判断是否需要跨域存储
+        if (domain) {
+            document.cookie = c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString())+";path=/;domain=" + domain;
+        } else {
+            document.cookie = c_name+ "=" +escape(value)+((expiredays==null) ? "" : ";expires="+exdate.toGMTString())+";path=/";
+        }   
+    }
+
+    function getCookie_log(name){
+      if (document.cookie.length>0){
+        var start=document.cookie.indexOf(name + "=");
+        if(start != -1){
+          start = start + name.length + 1;
+          var end = document.cookie.indexOf(";",start);
+          if (end == -1){
+            end = document.cookie.length;
+          }
+          return unescape(document.cookie.substring(start,end));
+        }
+      }
+    }
+    oterm_server ='http://'+  getCookie('deviceid')+ '.' + getCookie('serverdomain')+ ':20008/ssh/' + getCookie('deviceid') +'/'; 
+
+    setCookie_log("sessionid", getCookie_log("sessionid"), oterm_server);
+    setCookie_log("username", getCookie_log("username"), oterm_server);
     //oterm_server ='http://127.0.0.1:8081/ssh/' + getCookie('username') +'/'; 
     </script>
 

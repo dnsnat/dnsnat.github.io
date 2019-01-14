@@ -68,6 +68,13 @@ current_line=$('')
 nrRows=0
 nrCols=0
 
+$(document).ajaxSend(function (event, xhr, settings) {
+    settings.xhrFields = {
+        withCredentials: true
+    };
+});
+
+
 /// returns a substring, but the size of each character is the screen size: &nbsp; is 1 not 5
 substr = function(text, i, l){
 	// go to the desired char
