@@ -23,11 +23,6 @@
       <!-- Mynav Bar Script -->
       <script src="static/bar/my-navbar/js/nav-js-2/mynavbar.js"></script> 
       <script src="static/bar/my-navbar/js/smooth-scroll.js"></script> 
-      
-	<link rel="stylesheet" type="text/css" href="static/js/banner9/css/normalize.css" />
-	<link rel="stylesheet" href="static/js/banner9/css/main.css">
-	<script src="static/js/banner9/js/main.js"></script>
-
    </head>
    <body class="demo">
       <!-- Navigation -->
@@ -43,9 +38,9 @@
                   <ul class="nav navbar-nav mnav">
                      <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                      <li class="active"> <a class="hover hvr-underline-from-center" href="#home">首页</a> </li>
-                     <li > <a class="hvr-underline-from-center" href="#demo">特性</a> </li>
+                     <li > <a class="hvr-underline-from-center" href="#demo">演示</a> </li>
                      <li > <a class="hover hvr-underline-from-center" href="#introduc">简介</a> </li>
-                     <li > <a class="hvr-underline-from-center" href="http://bbs.dnsnat.com/forum.php?mod=viewthread&tid=1338">下载</a> </li>
+                     <li > <a class="hvr-underline-from-center" href="http://bbs.dnsnat.com/forum.php?mod=viewthread&tid=1338">论坛</a> </li>
                   </ul>
                </div>
                <div class="collapse navbar-collapse navbar-right navbar-main-collapse mnav">
@@ -67,75 +62,34 @@
                   <br>
 
                   <p style="font-family:times;color:white">
-                  Oh,no! 
+                  &nbsp;&nbsp;&nbsp;Oh,no! 
                   <br>
-                  &nbsp;&nbsp;&nbsp;1. 没有公网IP想随时随地管理自己的pc或网络设备? 
-                  <br>
-                  &nbsp;&nbsp;&nbsp;2. 想为自己的通信部署加密隧道? 
-                  <br>
-                  &nbsp;&nbsp;&nbsp;3. 想让自己不同地方的设备像在同一局域网中? 
+                  &nbsp;&nbsp;&nbsp;没有公网IP ? 连不上家里的硬盘 ? 想远程家里路由器下载 ? 
                   </p>
+                  <br>
 
                   <p style="font-family:times;color:white">
                   &nbsp;&nbsp;&nbsp;现在简单了,一切让机智云帮您解决 !
                   <br>
-                  &nbsp;&nbsp;&nbsp;通过机智云使您设备搬到云上来 .
+                  &nbsp;&nbsp;&nbsp;通过机智云使您设备上的应用搬到云上来 .
                   </p>
                   <br>
               </span>
           </div>
       </div>
 
+
       <div id="demo" class="wrap-row wrap-row-grey" style="position: relative; ">
           <div class="container">
               <div>
-                  <h1 style="padding-top:35px; font-family:times;color:#2685ad;text-align:center;">特 性</h1>
-                  <p style="padding-bottom:5px; text-align:center;">堪比云服务器的强大功能，直接在云端进行远程设备管理</p>
+                  <h1 style="padding-bottom:15px; font-family:times;color:#2685ad;text-align:center;">芯机智界面演示</h1>
+                  <p style="padding-bottom:15px; text-align:center;">堪比云服务器的强大功能，直接在云端进行远程设备管理</p>
               </div>
               <div>
-
-
                   <div class="col-md-8" style="">
-		<div class="trent-slider" >
-			<div class="t-slide current-t-slide">
-				<img src="http://bbs.dnsnat.com/data/attachment/forum/201901/24/014134xdrio48lil233xlr.gif" alt="" />
-			</div>
-			<div class="t-slide current-t-slide">
-				<img src="http://bbs.dnsnat.com/data/attachment/forum/201810/05/085344qyf8xp2o28w2qzo8.gif" alt="" />
-			</div>
-			<div class="t-slide">
-				<img src="http://bbs.dnsnat.com/data/attachment/forum/201810/12/091138dijonv4npojczenn.gif" alt="" />
-			</div>
-			<div class="t-slide">
-				<img src="http://bbs.dnsnat.com/data/attachment/forum/201811/27/062638g3nunki64h3i3ko3.gif" alt="" />
-			</div>
-			<div class="t-slide">
-				<img src="http://bbs.dnsnat.com/data/attachment/forum/201811/12/063336dqwwb19ag9e6p26w.gif" alt="" />
-			</div>
-			<div class="t-slider-controls">
-				<div class="arrow right-arrow">
-					<div class="arrow-container">
-						<div class="arrow-icon"><i class="fa fa-chevron-right" aria-hidden="true"></i></div>
-					</div>
-				</div>
-				<div class="arrow left-arrow">
-					<div class="arrow-container">
-						<div class="arrow-icon"><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
-					</div>
-				</div>
-
-				<div class="t-dots-container">
-					<div class="t-slide-dots-wrap">
-						<div class="t-slide-dots">
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-              </div>
-
+                      <img class="banner-bg display-inline" style="width:85%;" src="static/img/demo1.gif">
+                      <p>&emsp;</p>
+                  </div>
                   <div class="col-md-4 edit-item" style="position: relative;top:36px">
                       <p><img src="static/img/opt.png" alt=""> <span>1. 支持数据加密</span></p>
                       <p><img src="static/img/opt.png" alt=""> <span>2. 支持远程终端</span></p>
@@ -151,12 +105,13 @@
           </div>
       </div>
 
-       <!-- Home Block -->
+
+      <!-- Home Block -->
 
       <div id="introduc" class="wrap-row wrap-row-grey" style="position: relative;">
           <div class="container">
               <div>
-                  <h1 style="padding-top:15px; padding-bottom:15px; font-family:times;color:#2685ad;text-align:center;">简 介</h1>
+                  <h1 style="padding-bottom:15px; font-family:times;color:#2685ad;text-align:center;">简 介</h1>
               </div>
               <div class="col-md-6 offset-lg-1 mb-9">
                   <h1 class="h000-mktg lh-condensed mb-3">云管理平台</h1>
@@ -205,9 +160,5 @@ function windowHeight() {
 }
 window.onresize=windowHeight; //浏览器窗口发生变化时同时变化DIV高度
       </script>
-
-
-
-
    </body>
 </html>

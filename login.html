@@ -99,7 +99,6 @@ body{
         }
       }
     }
-
     function getCookie(c_name)
     {
         if (document.cookie.length>0)
@@ -115,9 +114,9 @@ body{
         }
         return ""
     }
-
-    if(username=getCookie('username') != "")
+    if(getCookie('sessionid') != "")
     {
+        document.cookie = "sessionid=" + getCookie_log("sessionid") + ";path=/;domain=" + getCookie_log("username") +'.'+ getCookie_log("serverdomain") + ";expires=" + exp.toGMTString();
         window.location.href= "starter-devices.html";
     }
 
@@ -153,59 +152,61 @@ body{
     }
 
     function doPost() 
-    { // to:提交动作（action）,p:参数 
-    if(document.getElementById("input_user").value == ""|| 
-        document.getElementById("input_pass").value == "")
-        {
-            var error_log = document.getElementById("error_log");
-            error_log.style.visibility= "visible";
-            return;
-        }
-
-    //alert("http://"+ document.getElementById("input_user").value + "." +host+ "/login.cgi") 
-    var obj = document.getElementById("ajaxloader3");
-    var error_log = document.getElementById("error_log");
-    obj.style.visibility= "visible";
-    error_log.style.visibility= "hidden";
-
-
-    var xhr = createXHR();
-    //xhr.open("POST", "http://" + document.getElementById("input_user").value +'.'+ witkit_server + ":8080/auth", true);
-    xhr.open("POST", "http://" + document.getElementById("input_user").value +"."+ witkit_server + ":8080/auth", true);
-
-    //xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest"); //请求头部，需要服务端同时设置
-    //xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.withCredentials = true; // 设置运行跨域操作  
-
-    //注册相关事件回调处理函数
-    xhr.onload = function(e) { 
-        if(this.status == 200||this.status == 304){
-            //window.location.href="http://"+ document.getElementById("input_user").value + "." +host+ "/static/login/Login_v10/Login_v10/goto_starter.html";
-            obj = JSON.parse(xhr.response);
-            if(obj.result && obj.error == null){
-                //document.cookie="sessionID="+obj.result;
-                var Days = 30;
-                var exp = new Date();
-                exp.setTime(exp.getTime() + 24 * 60 * 60000);//过期时间 60分钟
-
-                document.cookie="sessionid=" + obj.result + ";  path=/; expires=" + exp.toGMTString();
-                document.cookie="username=" + document.getElementById("input_user").value + ";  path=/; expires=" + exp.toGMTString();
-                document.cookie="serverdomain=" + witkit_server + ";  path=/; expires=" + exp.toGMTString();
-                setCookie_log("sessionid", obj.result, document.getElementById("input_user").value +'.'+ witkit_server);
-                setCookie_log("sessionid", obj.result, "6800." + document.getElementById("input_user").value +'.'+ witkit_server);
-                window.location.href= "starter-devices.html";
+    { 
+        // to:提交动作（action）,p:参数 
+        if(document.getElementById("input_user").value == ""|| 
+            document.getElementById("input_pass").value == "")
+            {
+                var error_log = document.getElementById("error_log");
+                error_log.style.visibility= "visible";
+                return;
             }
-            else{
-                show_error();
-            }
-        }
-    };
 
-    xhr.send(JSON.stringify({
-        "jsonrpc"  :  "2.0",
-        "method"   :  "auth",
-        "params" :  [document.getElementById("input_user").value, document.getElementById("input_pass").value]
-    }));
+        //alert("http://"+ document.getElementById("input_user").value + "." +host+ "/login.cgi") 
+        var obj = document.getElementById("ajaxloader3");
+        var error_log = document.getElementById("error_log");
+        obj.style.visibility= "visible";
+        error_log.style.visibility= "hidden";
+
+
+        var xhr = createXHR();
+        //xhr.open("POST", "http://" + document.getElementById("input_user").value +'.'+ witkit_server + ":8080/auth", true);
+        xhr.open("POST", "http://" + document.getElementById("input_user").value +"."+ witkit_server + ":8080/auth", true);
+
+        //xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest"); //请求头部，需要服务端同时设置
+        //xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.withCredentials = true; // 设置运行跨域操作  
+
+        //注册相关事件回调处理函数
+        xhr.onload = function(e) { 
+            if(this.status == 200||this.status == 304){
+                //window.location.href="http://"+ document.getElementById("input_user").value + "." +host+ "/static/login/Login_v10/Login_v10/goto_starter.html";
+                obj = JSON.parse(xhr.response);
+                if(obj.result && obj.error == null){
+                    //document.cookie="sessionID="+obj.result;
+                    var Days = 30;
+                    var exp = new Date();
+                    exp.setTime(exp.getTime() + 24 * 60 * 60000);//过期时间 60分钟
+
+                    document.cookie = "sessionid=" + obj.result + ";  path=/; expires=" + exp.toGMTString();
+                    document.cookie = "username=" + document.getElementById("input_user").value + ";  path=/; expires=" + exp.toGMTString();
+                    document.cookie = "serverdomain=" + witkit_server + ";  path=/; expires=" + exp.toGMTString();
+                    document.cookie = "sessionid=" + getCookie_log("sessionid") + ";path=/;domain=" + getCookie_log("username") +'.'+ getCookie_log("serverdomain") + ";expires=" + exp.toGMTString();
+
+                    //setCookie_log("sessionid", getCookie_log("sessionid"), getCookie_log("username") +'.'+ getCookie_log("serverdomain"));
+                    window.location.href= "starter-devices.html";
+                }
+                else{
+                    show_error();
+                    }
+            }
+            };
+
+            xhr.send(JSON.stringify({
+                "jsonrpc"  :  "2.0",
+                "method"   :  "auth",
+                "params" :  [document.getElementById("input_user").value, document.getElementById("input_pass").value]
+            }));
     } 
 
     document.onkeydown = function (e) {

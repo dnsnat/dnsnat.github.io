@@ -100,6 +100,8 @@
                 }   
             }
 
+
+
             function createXHR() 
             {
                 if(typeof XMLHttpRequest != "undefined"){
@@ -133,7 +135,7 @@
                 var list_str = '';
                 list_str += '<td><a><img alt="image" height="80" width="80" src="static/img/' +obj.Distributor+ '-logo.png"></a></td>';
                 list_str += '<td class="project-title"><a>操作系统: '+ obj.Distributor +'</a><br><small>系统版本: '+ obj.Release +'</small></td>';
-                list_str += '<td class="project-completion"><small>更新时间: '+ obj.Update +'</small><br><small>公网地址: '+ obj.IP +'</small></td>';
+                list_str += '<td class="project-completion"><small>内网地址: '+ obj.TUN_IP +'</small><br><small>公网地址: '+ obj.IP +'</small></td>';
                 list_str += '<td class="project-actions"><a href = "javascript:void(0);" onclick ="' + "open_desktop('"+ obj.id +"')" + '" class="btn btn-white btn-sm"><i class="fa fa-folder"></i>虚拟桌面</a>'
                 list_str += '<a target="_top" href = "javascript:void(0);" onclick ="' + "open_starter('"+ obj.id +"')" + '" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i>控制台</a></td>';
                 td.innerHTML = list_str;

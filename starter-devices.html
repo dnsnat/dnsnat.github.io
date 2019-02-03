@@ -302,9 +302,26 @@ desired effect
     Both of these plugins are recommended to enhance the
     user experience. -->
 
-    <script type="text/javascript">
+<script type="text/javascript">
     window.onload = windowHeight; //页面载入完毕执行函数
-
+    /**
+     * 获取cookie方法
+     * @param   {string}  name  cookie键值
+     * @return  {*}  返回cookie值
+     */
+    function getCookie_log(name){
+      if (document.cookie.length>0){
+        var start=document.cookie.indexOf(name + "=");
+        if(start != -1){
+          start = start + name.length + 1;
+          var end = document.cookie.indexOf(";",start);
+          if (end == -1){
+            end = document.cookie.length;
+          }
+          return unescape(document.cookie.substring(start,end));
+        }
+      }
+    }
     function getCookie(c_name)
     {
         if (document.cookie.length>0)
@@ -329,81 +346,56 @@ desired effect
         if(cval!=null) 
             document.cookie= name + "="+cval+";expires="+exp.toGMTString(); 
     } 
-    if(document.cookie.indexOf('username') == -1)
+    function clearAllCookie() {
+        var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+        if(keys) {
+        for(var i = keys.length; i--;)
+        document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString() + "; path=/";
+        }
+    }
+    
+    function js_logout()
     {
-        //alert(window.location.host);
-        //alert(getCookie('sessionid'));
+        clearAllCookie();
         window.location.href= "login.html";
     }
-    username=getCookie('username');
-    //document.getElementById("supterId").href = 'http://' + username + '.witkit.cn:8080/ssh/term/'; 
-    document.getElementById("userId").innerHTML = username; 
+    if(getCookie('username') == "")
+    {
+        js_logout();
+    }
+    document.getElementById("userId").innerHTML = getCookie('username'); 
 
-function windowHeight() {
-    var h = document.documentElement.clientHeight; //获取当前窗口可视操作区域高度
-    var w = document.documentElement.clientWidth; //获取当前窗口可视操作区域高度
-    var bodyHeight = document.getElementById("divContent"); //寻找ID为content的对象
-    bodyHeight.style.height = (h - 50) + "px"; //你想要自适应高度的对象
-    //bodyHeight.style.width  = (w - 200) + "px"; //你想要自适应高度的对象
-}
-window.onresize=windowHeight; //浏览器窗口发生变化时同时变化DIV高度
+    function windowHeight() {
+        var h = document.documentElement.clientHeight; //获取当前窗口可视操作区域高度
+        var w = document.documentElement.clientWidth; //获取当前窗口可视操作区域高度
+        var bodyHeight = document.getElementById("divContent"); //寻找ID为content的对象
+        bodyHeight.style.height = (h - 50) + "px"; //你想要自适应高度的对象
+        //bodyHeight.style.width  = (w - 200) + "px"; //你想要自适应高度的对象
+    }
+    window.onresize=windowHeight; //浏览器窗口发生变化时同时变化DIV高度
 
 
-$('#Nav1 li').click(function (){
-    //把之前已有的active去掉
-    //$('.active').removeClass('active');
-    //$('.menu-open').removeClass('menu-open');
-    //当前点击的li加上class
-    //$(this).addClass("active");
-
-    $('.sidebar-menu li:not(.treeview) > a').on('click', function(){
-
-        $('.active').removeClass('active');
-        var $parent = $(this).parent().addClass('active');
-        $parent.siblings('.treeview.active').find('> a').trigger('click');
-        $parent.siblings().removeClass('active').find('li').removeClass('active');
-    });
-
-    $(window).on('load', function(){
-        $('.sidebar-menu a').each(function(){
-            if(this.href === window.location.href){
-                $(this).parent().addClass('active')
-                    .closest('.treeview-menu').addClass('.menu-open')
-                    .closest('.treeview').addClass('active');
-            }
+    $('#Nav1 li').click(function (){
+        $('.sidebar-menu li:not(.treeview) > a').on('click', function(){
+    
+            $('.active').removeClass('active');
+            var $parent = $(this).parent().addClass('active');
+            $parent.siblings('.treeview.active').find('> a').trigger('click');
+            $parent.siblings().removeClass('active').find('li').removeClass('active');
+        });
+    
+        $(window).on('load', function(){
+            $('.sidebar-menu a').each(function(){
+                if(this.href === window.location.href){
+                    $(this).parent().addClass('active')
+                        .closest('.treeview-menu').addClass('.menu-open')
+                        .closest('.treeview').addClass('active');
+                }
+            });
         });
     });
-});
 
-
-function clearAllCookie() {
-    var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
-    if(keys) {
-    for(var i = keys.length; i--;)
-    document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString() + "; path=/";
-    }
-}
-function js_logout()
-{
-    //var date=new Date();
-    //date.setTime(date.getTime()-10000); 
-    ////document.cookie="session"+"=null; expire="+date.toGMTString()+"; path=/";
-    //document.cookie="sessionid"+"=null; expire="+date.toGMTString()+"; path=/";
-    //document.cookie="username"+"=null; expire="+date.toGMTString()+"; path=/";
-    //document.cookie="serverdomain"+"=null; expire="+date.toGMTString()+"; path=/";
-    
-    //delCookie("sessionid");
-    //delCookie("username");
-    //delCookie("serverdomain");
-    clearAllCookie();
-    window.location.href= "login.html";
-    //alert('已经退出!');
-    //location.reload();
-}
-
-
-
-var hiddenProperty = 'hidden' in document ? 'hidden' :    
+    var hiddenProperty = 'hidden' in document ? 'hidden' :    
         'webkitHidden' in document ? 'webkitHidden' : 
         'mozHidden' in document ? 'mozHidden' : 
         null;
@@ -411,28 +403,13 @@ var hiddenProperty = 'hidden' in document ? 'hidden' :
 
     var login_time = 0;
     function cookie_check(){
-        //如果在线则更新cookie
-        //if (!document[hiddenProperty]) {    
-        //    //document.title='被发现啦(*´∇｀*)';
-        //    login_time = 0;
-        //}else{
-        //    //document.title='藏好啦(つд⊂)  ';
-        //    login_time++;
-        //}
-
-        //if(login_time > 60)
-        //{
-        //    js_logout();
-        //}
-        //如果cookie超时则退出
         if(getCookie('username') == "")
         {
             js_logout();
-            //window.location.href= "login.html";
         }
     }
     setInterval(cookie_check,  60 * 1000); 
-    </script>
+</script>
 
 </body>
 
