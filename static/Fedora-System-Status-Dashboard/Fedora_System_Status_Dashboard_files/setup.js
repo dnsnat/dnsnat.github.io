@@ -16,7 +16,9 @@ function getCookie(c_name)
     }
     return ""
 }
-var status_rpc = 'http://' + getCookie('deviceid') + '.' + getCookie('serverdomain') + ':20002/20002/status'; 
+
+var status_rpc = 'http://' + '20002' + '.' + getCookie('deviceid') + '.' + getCookie('serverdomain') + ':20005/status'; 
+//var status_rpc = 'http://' + getCookie('serverdomain') + ':8080/status?devid=' + getCookie('deviceid').toLowerCase(); 
 
 $(document).ajaxSend(function (event, xhr, settings) {
     settings.xhrFields = {
@@ -26,9 +28,9 @@ $(document).ajaxSend(function (event, xhr, settings) {
 
 $.getJSON(status_rpc, function (json) {
     changevar  = json
-    var Time = json.Time
+    var Time   = json.Time
     var Uptime = json.Uptime[0]
-    var Users = ""
+    var Users  = ""
     for (var i = 0; i <= json.Users.length - 1; i++) {
         Users = Users + json.Users[i]
         if (i!=json.Users.length - 1){

@@ -297,7 +297,8 @@ desired effect
                   <ul class="treeview-menu">
                       <li><a href="static/angular-filemanager/manager.html" id="fileID" name="angular-filemanager-master" target="i">文件浏览-[内置]</a></li>
                       <li><a href="static/oterm/oterm.html" id="supterId" name="ssh" target="i">超级终端-[SSH]</a></li>
-                      <li><a href="static/AriaNg/index_src.html#!/downloading" id="a1" name="downloading" target="i">离线下载</a></li>
+                      <li><a href="static/AriaNg/index_src.html#!/downloading" id="a1" name="downloading" target="i">离线下载-[AriaNg]</a></li>
+                      <li><a href="" id="http_proxy" name="http_proxy" target="i">页面代理-[HTTP]</a></li>
                   </ul>
               </li>
               <li><a href="projects.html" id="a1" name="/projects.html" target="i"><i class="fa fa-cog"></i> <span>&nbsp;系统配置</span>
@@ -398,6 +399,8 @@ desired effect
     username=getCookie('username');
     //document.getElementById("supterId").href = 'http://' + username + '.witkit.cn:8080/ssh/term/'; 
     document.getElementById("userId").innerHTML = username; 
+
+    document.getElementById("http_proxy").href = 'http://20002.' + getCookie("deviceid").toUpperCase() +'.witkit.cn:20006';
 
 function windowHeight() {
     var h = document.documentElement.clientHeight; //获取当前窗口可视操作区域高度
